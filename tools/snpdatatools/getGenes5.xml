@@ -1,0 +1,109 @@
+<tool id="get-genes" name="Get genes by-region(s)-IDs" version="v.0.20">
+	<description> Retrieve list of genes within specified region of rice genomes </description>
+	<stdio>
+         <exit_code range="2"   level="fatal"   description="Out of Memory" />
+         <exit_code range="3:5" level="warning" description="Low disk space" />
+         <exit_code range="6:"  level="fatal"   description="Bad input dataset" />
+	</stdio>
+	<command>
+	<![CDATA[
+        #if str($reference.source) == "type":
+		mkdir index_dir &&
+                ln -s  $__tool_directory__/data/'$table' index_dir/tmp_table &&
+                tabix -p gff index_dir/tmp_table &&
+                tabix index_dir/tmp_table $reference.region |awk '$3=="$feat.typ"'|awk '{print $1,$4,$5,$7,$9}' OFS="\t" | sed 's/;Name=.\+//' | sed 's/ID=//' |sed 's/;Parent=.\+//'  > '$outFile' &&
+                rm -rf index_dir
+
+          #else:
+                mkdir index_dir &&
+                ln -s  $__tool_directory__/data/'$table' index_dir/tmp_table &&
+                tabix -p gff index_dir/tmp_table &&
+                xargs tabix index_dir/tmp_table < '$rgnList' |awk '$3=="$feat.typ"'|awk '{print $1,$4,$5,$7,$9}' OFS="\t" | sed 's/;Name=.\+//' | sed 's/ID=//' |sed 's/;Parent=.\+//'  > '$outFile2' &&
+                rm -rf index_dir
+          #end if  
+
+    ]]>
+	</command>
+
+
+	<inputs>
+		<param name="table" type="select" help="The info is derived from gene annotation efforts independent of the genome assembly (from GFF or other info sources).">
+			<label>Reference genome to get genes..</label>
+			<!-- <option value="tabix_Cs10_20190829_cds.gz">Cannabis sativa Cs10 cds-protein 20190829 genome annot</option> -->
+			<option value="nb_rgap7.chr.sort.gff3.gz" selected="true">Oryza sativa Nipponbare (tempJ) canonical genes RGAP7 annotation</option>		
+			<option value="mergemaker.OsIR64.gff.sort.new.chr.sort.gff.gz">Oryza sativa IR64 (indica) new annotation</option>
+			<option value="mergemaker.OsN22RS2.gff.sort.new.chr.sort.gff.gz">Oryza sativa N22 (aus) new annotation</option>
+			<option value="mergemaker.OsAzucena.gff.sort.new.chr.sort.gff.gz">Oryza sativa Azucena (tropJ) new annotation</option>
+		</param>
+	<conditional name="feat">
+		<param name="typ" type="select" label="Gene or mRNA" help="Display gene or mRNA in the region?">
+		<option value="gene" selected="true">Gene </option>
+		<option value="mRNA">mRNA</option>
+		</param>
+	</conditional>
+	<conditional name="reference">
+		<param name="source" type="select" label="Type in a region directly (chr:start-end), OR use regions list from history?" help="You can either type the region directly to search, or use multiple regions in a file from history.">
+			<option value="type" selected="true">Directly type-in region </option>
+			<option value="history">Use a list of regions from the history</option>
+		</param>
+		<when value="type">
+			<param name="region" type="text" label ="Search region " help="Directly type in your region (the chromosome/contig name SHOULD BE PRESENT in the genome) to list the genes (example in Nipponbare: Chr1:1-500000)."> 
+			</param>
+		</when>
+		<when value="history">
+			<param name="rgnList" type="data" format='txt' label ="Select genome region list" help="The chromosome/contig name SHOULD BE PRESENT in your target, and the region correctly formatted! See help section." /> 
+		</when>
+	</conditional>
+
+	</inputs>
+	<outputs>
+	<!-- <data format="tabular" name="outFile" label="Genes list for selected region in ${table.value_label}" /> -->
+
+		<data format="tabular" name="outFile" label="${feat.typ} : ${reference.region} in ${table.value_label} " >
+			<filter>reference['source'] == 'type' </filter>
+			<actions>
+				<action name="column_names" type="metadata" default="contig,start,end,strand,geneID,meta..." />
+			</actions>
+		</data>
+		<data format="tabular" name="outFile2" label="${tool.name} : ${on_string} in ${table.value_label} "  >
+			<filter>reference['source'] == 'history' </filter>
+			<actions>
+				<action name="column_names" type="metadata" default="contig,start,end,strand,geneID,meta..." />
+			</actions>
+		</data>
+
+	</outputs>
+
+
+	<tests>
+	</tests>
+
+	<help>
+	.. class:: infomark
+
+	**Get-genes- what it does**
+
+	Retrieves gene list in selected region from genome of choice::
+
+			  Nipponbare (https://doi.org/10.1186/1939-8433-6-4)
+			  N22 v2 (https://doi.org/10.1038/s41588-018-0040-0)
+			  Azucena, IR64 (https://doi.org/10.1038/s41597-020-0438-2); gene annotations are NOT published yet!
+			  
+			  ...
+			  DO NOTE that chromosome prefixes are specific to a genome: For Nipponbare, it's Chr1, Chr2, .. Ch12. N22, Azucena , and IR64 have Chr01, Chr02, ... Chr12.
+			  Example for a directly typed region using Nipponbare : Chr1:1-500000
+			  Example regions format for N22 (regions listed in a file. Format is chr:from-to, one per line, following Samtools faidx format )
+				  Chr01:1-100000
+				  Chr02:1-500000
+			
+	**IMPORTANT:** The chromosome name in your region / region list should **MATCH** the chromosome name in the genome. USE **Get-contig-names** tool to extract the chromosome names of your target genome.
+
+	More genomes to come. Get-genes uses Tabix_ program and Samtools_ region format.
+
+	.. _Tabix: http://www.htslib.org/doc/tabix.html
+	.. _Samtools: http://www.htslib.org/doc/samtools-faidx.html
+
+	</help>
+
+
+</tool>

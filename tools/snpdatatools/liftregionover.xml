@@ -1,0 +1,83 @@
+<tool id="blat.liftovr.1" name="Liftover_via_SNP" version="v.01">
+  <description>Lift a large chromosome region flanked by 2 SNPs from one genome to another</description>
+   <command><![CDATA[
+	mkdir tmpdir &&
+	printf "$chr:`expr $snp1 - $flank`-`expr $snp1 + $flank`\n" > tmpdir/regionlist &&
+	printf "$chr:`expr $snp2 - $flank`-`expr $snp2 + $flank`" >> tmpdir/regionlist &&
+ 	/home/galaxy/file_volume/samtools-1.10/samtools faidx --continue --region-file tmpdir/regionlist '$sgenome.fields.path' --output tmpdir/fa1 &&
+	cp tmpdir/fa1 $query &&
+	blat '$tgenome.fields.path' tmpdir/fa1 -maxIntron='$maxIntron' -tileSize='$tile' -out=psl '$output' &&
+	rm -rf tmpdir
+
+	 ]]>
+   </command>
+  
+   <inputs>
+ 		<param name="sgenome" type="select" label="Select source rice genome" help="Built-in rice genomes">
+                           <options from_data_table="all_fasta">
+                                   <filter type="sort_by" column="2"/>
+                                   <validator type="no_options" message="No indexes are available for the selected genome"/>
+                           </options>
+		</param>
+    <param name="chr" type="text" label="Chromosome name of source genome" value="Chr" help="Which chromosome are the SNPs located. Must be present in the source genome. Example: Chr1, Chr2, Chr12 for Nipponbare, Chr01, Chr02, Chr10 for the 3 other genomes" >
+    </param>
+    <param name="snp1" type="integer" label="Base position of left SNP in source genome" value="5000" help="Integer value MUST BE WITHIN bounds of chromosome in source genome" >
+    </param>
+    <param name="snp2" type="integer" label="Base position of right SNP in source genome" value="15000" help="Integer value MUST BE WITHIN bounds of chromosome in source genome" >
+    </param>
+    <param name="flank" type="integer" label="size of flanking sequence to either side of SNP" value="60" min="30" max="100" optional="false" help="Determines the size of the sequence surrounding a SNP in the source genome to align to the target genome. Adjust to get a realistic hit in the target genome." >
+    </param>
+
+ 		<param name="tgenome" type="select" label="Select target rice genome to lift-over" help="Built-in rice genomes">
+                           <options from_data_table="all_fasta">
+                                   <filter type="sort_by" column="2"/>
+                                   <validator type="no_options" message="No indexes are available for the selected genome"/>
+                           </options>
+		</param>
+
+    <param name="tile" type="integer" label="size of match that triggers an alignment(between 8 - 12 allowed)" value="11" min="8" max="12" optional="false" help="blat-specific alignment parameter">
+    </param>
+
+    <param name="maxIntron" type="integer" label="maximum intron size allowed" value="5000" min="500" max="10000" optional="false" help="blat-specific alignment parameter" >
+    </param>
+
+  </inputs>
+ 
+
+  <outputs>
+    <data format="fasta" name="query" label="Query sequence from ${sgenome}" />
+    <data format="tabular" name="output" label="Liftover region in ${tgenome}" />  
+  </outputs>
+
+<!--
+  <tests>
+	<test>
+		<conditional name="reference">
+			<param name="source" value="indexed" />
+			<param name="index" value="/home/galaxy/galaxy-prod/database/refGenomes/irgsp/Nipponbare/IRGSP-1.0_genome.fasta" />	
+		</conditional>
+		<param name="tile" value="11"/>
+		<param name="maxIntron" value="5000" />
+		<param name="outformat" value="psl" />
+		<output name="output" file=" " />
+	</test>
+  </tests>
+-->
+  <help>
+
+.. class:: infomark
+
+**Liftover_via_SNP - what it does**
+
+Liftover_via_SNP is a specialized alignment tool to find the location of large genome regions of interest from a source genome to another genome. The tool is specialized to lift over between the most recent builds of 4 published rice genomes (IR64, Azucena - https://doi.org/10.1038/s41597-020-0438-2; N22 - https://doi.org/10.1038/s41588-018-0040-0; Nipponbare - https://doi.org/10.1186/1939-8433-6-4)
+
+It uses blat_ as alignment engine, and the output is blat PSL format (please read the blat manual for more information). The default parameters of blat should work fine for rice genomes. 
+
+
+This tool is useful to find a QTL or GWAS region flanked by 2 SNPs that was mapped from a source genome (example, in Nipponbare) in another rice genome (say, IR64). A common use case would be if your study used SNPs discovered from the Nipponbare (japonica) reference genome, but you are doing QTL mapping for a population from an indica cross. You can lift-over the region from the reference genome to the closely related indica genome (IR64) using this tool. To further refine the lift-over, use the **Blat_Alignment_Filter** tool.
+
+
+.. _blat: http://users.soe.ucsc.edu/~kent/
+    
+   </help>
+</tool>
