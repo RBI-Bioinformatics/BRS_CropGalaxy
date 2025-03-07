@@ -1,0 +1,103 @@
+<tool id="plink-make-bed" name="Convert ped files to binary" version="0.1.0">
+    <requirements>
+        <requirement type="package" version="1.9">plink</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+	#set id=$__user_id__
+	mkdir -p outputs$id ;
+        plink2 --ped $input1 --map $input2 --make-bed --out outputs$id/output_bed ;
+	cp outputs$id/output_bed.bed $out1 ;
+	cp outputs$id/output_bed.bim $out3 ;
+	cp outputs$id/output_bed.fam $out2 ;
+	rm -rf outputs$id
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="tabular" label="Ped File"/>
+        <param type="data" name="input2" format="tabular" label="Map File" />
+    </inputs>
+    <outputs>
+		<data name="out1" label="Bed File"  />
+		<data name="out2" format="tabular" label="Bim File"  />
+		<data name="out3" format="tabular" label="Fam File"  />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="rgenetics.ped"/>
+            <param name="input2" value="rgenetics.map"/>
+            <output name="output1" file="plink_binary.bed"/>
+            <output name="output2" file="plink_binary.bim"/>
+            <output name="output3" file="plink_binary.fam"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+.. class:: infomark
+
+**Convert ped files to binary** 
+
+----
+
+**What this tool does** 
+
+Convert a “text PLINK” dataset (PED and MAP files) into a binary PLINK dataset (BED,BIM,FAM files). The conversion is done using  PLINK v1.90b6.1 64-bit (28 May 2018).
+
+**Input**
+
+A text PLINK dataset (PED and MAP files).
+
+**Output**
+
+A binary PLINK dataset (BIM, BED,FAM files)
+
+**Basic Usage**
+
+  plink [input flag(s)...] {command flag(s)...} {other flag(s)...}
+  plink --help {flag name(s)...}
+
+Commands include: 
+	* --make-bed
+	* --recod
+	* --flip-scan 
+	* --merge-list
+	* --write-snplist
+	* --list-duplicate-vars
+	* --freqx
+	* --missing
+	* --test-mishap
+	* --hardy
+	* --mendel
+
+'plink --help | more' describes all functions (warning: long).
+
+**Links:**
+
+To read more about PLINK data format, see the following:
+
+FAM: https://www.cog-genomics.org/plink/1.9/formats#fam
+
+BIM:  https://www.cog-genomics.org/plink/1.9/formats#bim
+
+BED: https://www.cog-genomics.org/plink/1.9/formats#bed
+
+----
+
+PED:https://www.cog-genomics.org/plink/1.9/formats#ped or https://zzz.bwh.harvard.edu/plink/data.shtml#ped 
+
+MAP: https://www.cog-genomics.org/plink/1.9/formats#map or https://zzz.bwh.harvard.edu/plink/data.shtml#map
+
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+@misc{Turner005165,
+	author = {Turner, Stephen D.},
+	title = {qqman: an R package for visualizing GWAS results using Q-Q and manhattan plots},
+	elocation-id = {005165},
+	year = {2014},
+	doi = {10.1101/005165},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2014/05/14/005165},
+	eprint = {https://www.biorxiv.org/content/early/2014/05/14/005165.full.pdf},
+	journal = {bioRxiv}
+
+}</citation>
+    </citations>
+</tool>

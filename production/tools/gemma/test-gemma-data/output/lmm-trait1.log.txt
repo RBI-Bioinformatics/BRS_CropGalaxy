@@ -1,0 +1,38 @@
+##
+## GEMMA Version    = 0.98.1 (2018-12-10)
+## Build profile    = 
+## GCC version      = 8.2.0
+## GSL Version      = 2.5
+## Eigen Version    = 3.3.5
+## OpenBlas         = OpenBLAS 0.3.2  - DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=6
+##   arch           = Haswell
+##   threads        = 2
+##   parallel type  = threaded
+##
+## Command Line Input = gemma -lmm -bfile data500-pruned -k result.cXX.txt -o lmm-trait1 
+##
+## Date = Mon Jul  6 04:59:49 2020
+##
+## Summary Statistics:
+## number of total individuals = 500
+## number of analyzed individuals = 500
+## number of covariates = 1
+## number of phenotypes = 1
+## number of total SNPs/var = 629069
+## number of analyzed SNPs/var = 494388
+## REMLE log-likelihood in the null model = -88.0524
+## MLE log-likelihood in the null model = -87.7222
+## pve estimate in the null model = 0.013223
+## se(pve) in the null model = 0.0289129
+## vg estimate in the null model = 0.0030948
+## ve estimate in the null model = 0.0823147
+## beta estimate in the null model =   1.0682
+## se(beta) =   0.0128308
+##
+## Computation Time:
+## total computation time = 3.88147 min 
+## computation time break down: 
+##      time on eigen-decomposition = 0.0016621 min 
+##      time on calculating UtX = 0.713198 min 
+##      time on optimization = 2.90994 min 
+##

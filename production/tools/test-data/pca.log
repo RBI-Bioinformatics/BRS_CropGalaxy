@@ -1,0 +1,31 @@
+PLINK v1.90b6.18 64-bit (16 Jun 2020)
+Options in effect:
+  --allow-extra-chr
+  --allow-no-sex
+  --bed data500-pruned.bed
+  --bim data500-pruned.bim
+  --fam data500-pruned.fam
+  --keep-allele-order
+  --out pca
+  --pca 10 header tabs
+
+Hostname: ip-172-30-0-86
+Working directory: /home/galaxy/data/alexis_dereeper/tools/gemma/test-data
+Start time: Tue Jul 14 11:15:55 2020
+
+Random number seed: 1594725355
+7982 MB RAM detected; reserving 3991 MB for main workspace.
+629069 variants loaded from .bim file.
+500 people (0 males, 0 females, 500 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to pca.nosex .
+500 phenotype values loaded from .fam.
+Using up to 2 threads (change this with --threads).
+Before main variant filters, 500 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.969262.
+629069 variants and 500 people pass filters and QC.
+Phenotype data is quantitative.
+Relationship matrix calculation complete.
+--pca: Results saved to pca.eigenval and pca.eigenvec .
+
+End time: Tue Jul 14 11:16:06 2020

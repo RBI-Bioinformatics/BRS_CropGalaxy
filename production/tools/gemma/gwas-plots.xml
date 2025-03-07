@@ -1,0 +1,52 @@
+<tool id="gwas-plot" name="Plot Results" version="0.5">
+    <description>Make Manhattan and QQ plots</description>
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        /home/galaxy/R/4.0.2/bin/Rscript --vanilla $__tool_directory__/gwas-plots.R -t "$input1" -f "$input2" -g $genomewide -u $suggestive 
+    ]]></command>
+    <inputs>
+        <param type="text" name="input1" value="trait_name" label="Trait Name" help="specify Phenotype to plot" />
+        <param type="data" name="input2" format="tabular" label="GWAS Output" help="(tabular) Tab-delimited file output from association analysis"/>
+        <param type="float" name="genomewide" value="2.00" min="1.00" max="10.00" label="Genomewide significance threshold for -log10(p)" help="(float) default:2"/>
+        <param type="float" name="suggestive" value="5.00" min="1.00" max="10.00" label="Suggestive significance threshold for -log10(p)" help="(float) default:5" />
+    </inputs>
+    <outputs>
+	<data name="output" auto_format="true" >
+		<discover_datasets pattern="__designation__" ext="png" visible="true" directory="." recurse="true"/>
+	</data>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="trait1"/>
+            <param name="input2" value="/home/galaxy/new_database/galaxy/database/files/007/dataset_7625.dat"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+        .. class:: infomark
+	
+	**GWAS plot: visualize association resuts**
+
+	**What the tool does:**
+
+	Creates QQplot and manhattan plot to visualize association test results.
+ 
+	Options:
+		 -t 	Trait Number
+		 -f 	GWAS result
+		 -g 	genomewide threshold
+		 -u 	suggestive threshold
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+@misc{Turner005165,
+  author = {Turner,Stephen D.},
+  year = {2014},
+  title = {qqman: an R package for visualizing GWAS results using Q-Q and manhattan plots},
+  publisher = {Cold Spring Harbor Laboratory},
+  journal = {bioRxiv},
+  url = {https://www.biorxiv.org/content/early/2014/05/14/005165},
+}</citation>
+    </citations>
+</tool>

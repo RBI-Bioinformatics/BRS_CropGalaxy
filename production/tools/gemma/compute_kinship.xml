@@ -1,0 +1,86 @@
+<tool id="gemma-gk5" name="Compute Kinship from Genotype" version="0.5.0">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+	#if $input.type=="bed"
+		ln -s '$input1' input.bim ;
+		ln -s '$input2' input.fam ;
+		ln -s '$input3' input.bed ;
+		gemma -bfile input -gk 1 -outdir . -o output ;
+		unlink input.bim ;
+		unlink input.fam ;
+		unlink input.bed ;
+	#else
+		gemma -gk 1 -g $geno -p pheno -o $output;	
+	#end if
+
+
+    ]]></command>
+    <inputs>
+	<conditional name="input">
+		<param name="type" type="select" label="Input Type">
+			<option value="bed" selected="true">Plink Binary files</option>
+			<option value="bimbam">BIMBAM file</option>
+		</param>
+		<when value="bed">
+	        	<param type="data" name="input1"  label="bim file"/>
+	        	<param type="data" name="input2"  label="fam file" />
+        		<param type="data" name="input3"  label="bed file" />
+		</when>
+		<when value="bimbam">
+	        	<param type="data" name="geno" format="tabular" label="genotype file" />
+	        	<param type="data" name="pheno" format="tabular" label="phenotype file" />
+		</when>
+	</conditional>
+    </inputs>
+    <outputs>
+        <data name="output" format="tabular" from_work_dir="output.cXX.txt" label="Relatedness Matrix"/>
+        <data name="log" format="tabular" from_work_dir="output.log.txt" label="Log File: Compute Kinship from Genotype"/>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="HLC.bim"/>
+            <param name="input2" value="HLC.fam"/>
+            <param name="input3" value="HLC.bed"/>
+            <output name="output" file="output.cXX.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+.. class:: infomark
+
+**Compute Kinship from Genotypes**
+
+----
+
+**Description**
+
+This tool computes the kinship (or relatedness) matrix given a PLINK binary file using GEMMA.
+
+**Input**
+
+- A plink binary dataset (BED,BIM,FAM files)
+- (Optional -no need to add) Selection of type of kinship matrix (1-centered, 2-centered and scaled). Default selection: 1
+
+**Output**
+
+- An N by N matrix text file, where N is the number of samples 
+- A log file (to refer to in case of errors, and to see other details such as actual number of SNPs used)
+
+----
+	
+	The GEMMA software is distributed under the GNU General Public v3 -license show license information see also 
+	- http://www.xzlab.org/software.html
+	- https://github.com/genetics-statistics
+
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+  @misc{pmid:22706312,
+	author = {Zhou, Xiang. Stephens,Matthew },
+	title = {Genome-wide efficient mixed-model analysis for association studies"},
+	year = {2012},
+	doi = {10.1038/ng.2310},
+	journal = {Nature genetics}
+}</citation>
+    </citations>
+</tool>

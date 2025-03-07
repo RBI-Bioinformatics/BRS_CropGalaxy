@@ -1,0 +1,74 @@
+<tool id="gemma-assoc-gk2" name="**Compute Kinship" version="v.01">
+  <description>from genotypes </description>
+   <command><![CDATA[
+	mkdir -p $__tool_directory__/output_dir &&
+   	#if $input.format=='bed':
+		ln -s $bim $__tool_directory__/output_dir/input.bim &&
+		ln -s $bed $__tool_directory__/output_dir/input.bed &&
+		ln -s $fam $__tool_directory__/output_dir/input.fam &&
+		cd $__tool_directory__/output_dir/ &&
+		sh $__tool_directory__/gemma-gwas-scripts/compute_kinship.sh input &&
+		cp $__tool_directory__/output_dir/output.cXX.txt $out &&
+		cp $__tool_directory__/output_dir/output.log.txt $log &&
+	#else:	
+		gemma
+		-p $phenotype
+		-g $genotype	
+		-gk $gk 
+		-outdir $__tool_directory__/output_dir
+		-o output &&
+		cp $__tool_directory__/output_dir/output.cXX.txt $out &&
+		cp $__tool_directory__/output_dir/output.log.txt $log &&
+	#end if	
+	rm -rf $__tool_directory__/output_dir/ 
+   ]]>
+   </command>
+   <stdio>
+	<exit_code range="3:5" level="warning" description="Low disk space" />
+	<exit_code range="6:" level="fatal" description="Bad input dataset" />
+	<!-- Catching fatal_oom allows the job runner to potentially resubmit to a resource with more memory if Galaxy is configured to do this. -->
+	<exit_code range="2" level="fatal_oom" description="Out of Memory" />
+    </stdio>
+
+  <inputs>
+	<conditional name="input">
+        	<param name="format" type="select" label="Input Format" help="Plink binary ped format or BIMBAM format">
+                	<option value="bed">PLINK binary ped format</option>
+                        <option value="bimbam">BIMBAM format</option>
+                </param>
+                <when value="bed">
+                        <param name="bim" type="data" label="bim file" />
+		        <param name="bed" type="data" label="bed File" help=""/>
+		        <param name="fam" type="data" label="fam File" help=""/>
+                </when>
+                <when value="bimbam">
+                        <param name="genotype" type="data" label="Genotype File" help=""/>
+                        <param name="phenotype" type="data" label="Phenotype File" help=""/>
+                </when>
+        </conditional>
+	<param name="gk" type="select"  label="Method to use">
+		<option value="1">Centered Relatedness Matrix</option>
+		<option value="2">Standardized Relatedness Matrix</option>
+	</param>	
+  </inputs>
+ 
+
+  <outputs>
+    <data format="tabular" name="out" label="Estimated Relatedness Matrix" />
+    <data format="txt" name="log" label="Log File" />
+  </outputs>
+
+
+  <tests>
+
+  </tests>
+
+  <help>
+
+.. class:: infomark 
+
+**GEMMA: Estimate Relatedness using Genotypes - what it does**
+
+    
+   </help>
+</tool>

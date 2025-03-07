@@ -1,0 +1,42 @@
+<tool id="add_pheno_to_fam" name="Add Pheno to Fam File" version="0.1.0">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+	ln -s '$fam' file.fam ;
+	ln -s '$pheno' pheno.txt;
+        Rscript $__tool_directory__/add-pheno-to-fam.R file.fam pheno.txt;
+	unlink file.fam;
+	unlink pheno.txt;
+    ]]></command>
+    <inputs>
+        <param type="data" name="fam" format="txt" label="Fam file"/>
+        <param type="data" name="pheno" format="txt" label="pheno file"/>
+    </inputs>
+    <outputs>
+    	<data auto_format="true" name="output" label="output">
+		<discover_datasets pattern="__designation__" ext="txt" visible="true" directory="." recurse="true"/>
+	</data>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="test-data/data500-pruned.fam"/>
+            <param name="input2" value="test-data/trait1.txt"/>
+            <output name="output1" file="test-data/data500-pruned.fam.trait1.txt"/>
+            <output name="output2" file="test-data/pheno1col-data500-pruned.fam.trait1.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        Prepare datasets for each trait
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+@misc{githubgemma-gwas-scripts,
+  author = {LastTODO, FirstTODO},
+  year = {TODO},
+  title = {gemma-gwas-scripts},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = {https://github.com/dchebotarov/gemma-gwas-scripts},
+}</citation>
+    </citations>
+</tool>

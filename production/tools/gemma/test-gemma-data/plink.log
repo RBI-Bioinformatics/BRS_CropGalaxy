@@ -1,0 +1,25 @@
+PLINK v1.90b6.1 64-bit (28 May 2018)
+Options in effect:
+  --allow-no-sex
+  --bfile data500-pruned
+  --clump output/lmm-trait1.assoc.txt
+
+Hostname: ip-172-30-0-160
+Working directory: /home/galaxy/new_database/galaxy/tools/gemma/test-data
+Start time: Thu Jul  9 07:03:49 2020
+
+Random number seed: 1594278229
+7982 MB RAM detected; reserving 3991 MB for main workspace.
+629069 variants loaded from .bim file.
+500 people (0 males, 0 females, 500 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to plink.nosex .
+500 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 500 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.969262.
+629069 variants and 500 people pass filters and QC.
+Phenotype data is quantitative.
+Error: No variant ID field found in output/lmm-trait1.assoc.txt.
+
+End time: Thu Jul  9 07:03:49 2020

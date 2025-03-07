@@ -1,0 +1,118 @@
+<tool id="gemma-assoc-lmm" name="Mixed Linear Model" version="v.01">
+  <description> </description>
+   <command><![CDATA[
+	ln -s '$bim' input.bim ;
+	ln -s '$bed' input.bed ;
+	ln -s '$fam' input.fam ;
+	gemma
+	#if $input.format=='bed':
+		-bfile input
+	#else:
+		-p $phenotype
+		-g $genotype
+		-a $annotation
+	#end if
+	#if str($covariates.add_covariate) == "cov":
+		-c $covariate_file
+	#end if
+	-k $relatedness
+	-lmm $lmm 
+	-outdir .
+	-o result;
+	unlink input.bim ;
+	unlink input.fam ;
+	unlink input.bed ;
+   ]]>
+   </command>
+   <stdio>
+	<exit_code range="3:5" level="warning" description="Low disk space" />
+	<exit_code range="6:" level="fatal" description="Bad input dataset" />
+	<!-- Catching fatal_oom allows the job runner to potentially resubmit to a resource with more memory if Galaxy is configured to do this. -->
+	<exit_code range="2" level="fatal_oom" description="Out of Memory" />
+    </stdio>
+
+  <inputs>
+	<conditional name="input">
+        	<param name="format" type="select" label="Input Format" help="Plink binary ped format or BIMBAM format">
+                	<option value="bed">PLINK binary ped format</option>
+                        <option value="bimbam">BIMBAM format</option>
+                </param>
+                <when value="bed">
+			<param name="bim" type="data" label="bim File" help=""/>
+			<param name="fam" type="data" label="fam File" help=""/>
+			<param name="bed" type="data" label="bed File" help=""/>
+                </when>
+                <when value="bimbam">
+                        <param name="genotype" type="data" label="Genotype File" help=""/>
+                        <param name="phenotype" type="data" label="Phenotype File" help=""/>
+                        <param name="annotation" type="data" label="Annotation File" help=""/>	
+                </when>
+        </conditional>
+        <param name="relatedness" type="data" label="Relatedness Matrix File" help=""/>
+	<conditional name="covariates">
+		<param type="boolean" name="add_covariate" truevalue="cov" falsevalue="nocov" label="Add covariate"/>
+		<when value="cov">
+			<param type="data" name="covariate_file" format="tabular" label="Covariate File" />
+		 </when>
+		<when value="nocov" />
+	 </conditional>
+	<param name="lmm" type="select"  label="Linear Model test to use">
+		<option value="1">Wald Test</option>
+		<option value="2">Likelihood Ratio </option>
+		<option value="3">Score Test </option>
+		<option value="4">Perform all </option>
+	</param>	
+  </inputs>
+ 
+
+  <outputs>
+	<data format="tabular" name="result" label="Univariate Linear Mixed Model Association Result" from_work_dir="result.assoc.txt" />
+	 <data format="tabular" name="log" label="Univariate Linear Mixed Model Association Log File" from_work_dir="result.log.txt" />
+  </outputs>
+
+
+  <tests>
+
+  </tests>
+
+  <help>
+
+.. class:: infomark 
+
+**GEMMA: Association using Linear Mixed Model**
+
+----
+
+**Description**
+
+Run a GWAS using a mixed linear model implemented in GEMMA.
+
+----
+
+**Input**
+
+- A binary PLINK dataset (BED, BIM, FAM) files
+- Kinship (relatedness) matrix, such as produced by (Compute Relatedness matrix tool)
+- An optional covariates file ( such as produced by Run PCA tool)
+
+**Output**
+
+- An output GWAS table that has columns
+
+	chr	rs	ps	n_miss	allele1 	allele0	af	beta	se logl_H1 l_remle	 p_wald
+	
+	(Chromosome, SNP_ID, Position, NumberOfMissing, Effect allele, Reference allele, Estimate of effect (beta), Standard error of beta estimate, Log-likelihood(H1), likelihood(REML), P-value (from a Wald test or other test selected by user).
+   </help>
+
+<citations>
+	<citation type="bibtex">
+	@misc {pmid:22706312,
+		author = {Zhou, Xiang. Stephens,Matthew },
+		title = {Genome-wide efficient mixed-model analysis for association studies"},
+		year = {2012},
+		doi = {10.1038/ng.2310},
+		journal = {Nature genetics}
+	}
+	</citation>
+</citations>
+</tool>

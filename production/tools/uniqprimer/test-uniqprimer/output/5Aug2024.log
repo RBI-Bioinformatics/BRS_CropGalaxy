@@ -1,0 +1,496 @@
+utils::Initialize( ) - Initialization complete. Temporary directory: tmp8zrYRD
+uniqprimer::Main( ) - Logging include files: 
+uniqprimer::Main( ) - test-data/PXO99.fa
+uniqprimer::Main( ) - Logging exclude files: 
+uniqprimer::Main( ) - test-data/BLS256.fa
+UniqPrimerFinder::__init__() - Initializing UniqPrimerFinder
+utils::search_file - Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+utils::search_file - Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+utils::search_file - Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+utils::search_file - Path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+UniqPrimerFinder::__init__() - Initializing UniqPrimerFinder - complete
+UniqPrimerFinder::findPrimers() - Finding primers for include files
+ExcludeFileManager::addExcludeFile( ) - adding exclude file test-data/BLS256.fa
+ExcludeFileManager::exportSequences( ) - parsing exclude sequences
+fastaparser::parseFastaFile( ) - parsing fasta file test-data/BLS256.fa
+ExcludeFileManager::exportSequences( ) - finished parsing, writing to a common file
+ExcludeFileManager::buildOutputFileName( ) -  exclude file: tmp8zrYRD/combined_exlude.ffn
+ExcludeFileManager::exportSequences( ) - All sequences exported
+IncludeFileManager::setExcludeFile( ) - fileName tmp8zrYRD/combined_exlude.ffn
+IncludeFileManager::processIncludeFile( ) - processing test-data/PXO99.fa
+IncludeFileManager::processIncludeFile( ) - running nucmer for reference file: test-data/PXO99.fa
+IncludeFileManager::findUniqueSequence( ) - running nucmer for reference file: test-data/PXO99.fa
+ProgramBase::Execute( ) - Running the nucmer program.
+ProgramBase::Execute( ) - /usr/bin/nucmer -p nucmer_alignments -o --minmatch 300 --maxgap 1 test-data/PXO99.fa tmp8zrYRD/combined_exlude.ffn
+NucmerParser::parseCoordMatchFile( ) - Parse nucmer_alignments.coords, finding 439 matches
+fastaparser::parseFastaFileAsPrimerSequence( ) - parsing fasta file test-data/PXO99.fa
+fastaparser::parseFastaFileAsPrimerSequence( ) - read 1 sequences
+PrimerSequence::getNonMatchedSubSequences( ) - finding valid sub sequences for CP000967
+PrimerSequence::findValidIndices( ) - getting unmatched sequence indices
+PrimerSequence::findValidIndices( ) - there are 439 excluded sequences for CP000967
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3 - 3228
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3405 - 16758
+PrimerSequence::findValidIndices( ) - removing exclude sequence 17115 - 26223
+PrimerSequence::findValidIndices( ) - removing exclude sequence 27504 - 30719
+PrimerSequence::findValidIndices( ) - removing exclude sequence 34546 - 39416
+PrimerSequence::findValidIndices( ) - removing exclude sequence 42121 - 44732
+PrimerSequence::findValidIndices( ) - removing exclude sequence 49011 - 56022
+PrimerSequence::findValidIndices( ) - removing exclude sequence 56024 - 61483
+PrimerSequence::findValidIndices( ) - removing exclude sequence 65874 - 83097
+PrimerSequence::findValidIndices( ) - removing exclude sequence 88387 - 91877
+PrimerSequence::findValidIndices( ) - removing exclude sequence 92689 - 112653
+PrimerSequence::findValidIndices( ) - removing exclude sequence 122606 - 127952
+PrimerSequence::findValidIndices( ) - removing exclude sequence 148559 - 173216
+PrimerSequence::findValidIndices( ) - removing exclude sequence 181229 - 193276
+PrimerSequence::findValidIndices( ) - removing exclude sequence 195484 - 196521
+PrimerSequence::findValidIndices( ) - removing exclude sequence 202369 - 207428
+PrimerSequence::findValidIndices( ) - removing exclude sequence 208993 - 214570
+PrimerSequence::findValidIndices( ) - removing exclude sequence 226468 - 228869
+PrimerSequence::findValidIndices( ) - removing exclude sequence 229047 - 238773
+PrimerSequence::findValidIndices( ) - removing exclude sequence 239009 - 266667
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270121 - 271642
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270121 - 271637
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270122 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270122 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270123 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270123 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270123 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270124 - 272693
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270124 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270125 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270125 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270140 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270211 - 271638
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270211 - 271649
+PrimerSequence::findValidIndices( ) - removing exclude sequence 270211 - 271644
+PrimerSequence::findValidIndices( ) - removing exclude sequence 274839 - 302978
+PrimerSequence::findValidIndices( ) - removing exclude sequence 303209 - 313653
+PrimerSequence::findValidIndices( ) - removing exclude sequence 324512 - 341522
+PrimerSequence::findValidIndices( ) - removing exclude sequence 345457 - 347935
+PrimerSequence::findValidIndices( ) - removing exclude sequence 352488 - 356604
+PrimerSequence::findValidIndices( ) - removing exclude sequence 360152 - 373173
+PrimerSequence::findValidIndices( ) - removing exclude sequence 374191 - 399552
+PrimerSequence::findValidIndices( ) - removing exclude sequence 410108 - 414743
+PrimerSequence::findValidIndices( ) - removing exclude sequence 414927 - 417283
+PrimerSequence::findValidIndices( ) - removing exclude sequence 417276 - 420016
+PrimerSequence::findValidIndices( ) - removing exclude sequence 421475 - 424469
+PrimerSequence::findValidIndices( ) - removing exclude sequence 424469 - 430970
+PrimerSequence::findValidIndices( ) - removing exclude sequence 433357 - 442492
+PrimerSequence::findValidIndices( ) - removing exclude sequence 457871 - 478690
+PrimerSequence::findValidIndices( ) - removing exclude sequence 484820 - 499242
+PrimerSequence::findValidIndices( ) - removing exclude sequence 499242 - 502122
+PrimerSequence::findValidIndices( ) - removing exclude sequence 510300 - 520935
+PrimerSequence::findValidIndices( ) - removing exclude sequence 526183 - 533786
+PrimerSequence::findValidIndices( ) - removing exclude sequence 539869 - 544051
+PrimerSequence::findValidIndices( ) - removing exclude sequence 566003 - 569034
+PrimerSequence::findValidIndices( ) - removing exclude sequence 570900 - 572103
+PrimerSequence::findValidIndices( ) - removing exclude sequence 572102 - 576015
+PrimerSequence::findValidIndices( ) - removing exclude sequence 576352 - 577761
+PrimerSequence::findValidIndices( ) - removing exclude sequence 582893 - 589882
+PrimerSequence::findValidIndices( ) - removing exclude sequence 601838 - 607017
+PrimerSequence::findValidIndices( ) - removing exclude sequence 607017 - 617088
+PrimerSequence::findValidIndices( ) - removing exclude sequence 622074 - 630169
+PrimerSequence::findValidIndices( ) - removing exclude sequence 631287 - 634583
+PrimerSequence::findValidIndices( ) - removing exclude sequence 638752 - 643493
+PrimerSequence::findValidIndices( ) - removing exclude sequence 646066 - 656899
+PrimerSequence::findValidIndices( ) - removing exclude sequence 659056 - 674937
+PrimerSequence::findValidIndices( ) - removing exclude sequence 680308 - 684866
+PrimerSequence::findValidIndices( ) - removing exclude sequence 685272 - 718025
+PrimerSequence::findValidIndices( ) - removing exclude sequence 723981 - 724693
+PrimerSequence::findValidIndices( ) - removing exclude sequence 726807 - 739260
+PrimerSequence::findValidIndices( ) - removing exclude sequence 740775 - 744072
+PrimerSequence::findValidIndices( ) - removing exclude sequence 745823 - 751306
+PrimerSequence::findValidIndices( ) - removing exclude sequence 754572 - 758110
+PrimerSequence::findValidIndices( ) - removing exclude sequence 759931 - 762311
+PrimerSequence::findValidIndices( ) - removing exclude sequence 765552 - 774631
+PrimerSequence::findValidIndices( ) - removing exclude sequence 780592 - 783001
+PrimerSequence::findValidIndices( ) - removing exclude sequence 783161 - 784062
+PrimerSequence::findValidIndices( ) - removing exclude sequence 793372 - 804862
+PrimerSequence::findValidIndices( ) - removing exclude sequence 807661 - 814108
+PrimerSequence::findValidIndices( ) - removing exclude sequence 814941 - 827652
+PrimerSequence::findValidIndices( ) - removing exclude sequence 829234 - 835002
+PrimerSequence::findValidIndices( ) - removing exclude sequence 836116 - 840295
+PrimerSequence::findValidIndices( ) - removing exclude sequence 842063 - 843228
+PrimerSequence::findValidIndices( ) - removing exclude sequence 844702 - 848759
+PrimerSequence::findValidIndices( ) - removing exclude sequence 849585 - 858982
+PrimerSequence::findValidIndices( ) - removing exclude sequence 859636 - 865799
+PrimerSequence::findValidIndices( ) - removing exclude sequence 867935 - 877021
+PrimerSequence::findValidIndices( ) - removing exclude sequence 877133 - 891109
+PrimerSequence::findValidIndices( ) - removing exclude sequence 891270 - 899917
+PrimerSequence::findValidIndices( ) - removing exclude sequence 902466 - 911930
+PrimerSequence::findValidIndices( ) - removing exclude sequence 920124 - 940272
+PrimerSequence::findValidIndices( ) - removing exclude sequence 940268 - 949267
+PrimerSequence::findValidIndices( ) - removing exclude sequence 951902 - 967476
+PrimerSequence::findValidIndices( ) - removing exclude sequence 979413 - 980643
+PrimerSequence::findValidIndices( ) - removing exclude sequence 979614 - 980641
+PrimerSequence::findValidIndices( ) - removing exclude sequence 984162 - 985500
+PrimerSequence::findValidIndices( ) - removing exclude sequence 996637 - 1001459
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1002300 - 1004577
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1006164 - 1008161
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1008158 - 1013078
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1009836 - 1010294
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1013575 - 1026898
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1026898 - 1034309
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1034845 - 1049975
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1049975 - 1080674
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1080665 - 1094866
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095167 - 1096226
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095168 - 1096002
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095168 - 1096177
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095169 - 1096225
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095169 - 1096229
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1095170 - 1096224
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1098712 - 1109868
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1116552 - 1119844
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1120165 - 1131344
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1132704 - 1152174
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1154161 - 1169313
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1172507 - 1176455
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1177630 - 1178792
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1205326 - 1206651
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1207501 - 1211325
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1218374 - 1246522
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1246668 - 1271171
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1278978 - 1288203
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1288735 - 1324315
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1322128 - 1324316
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1337892 - 1340250
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1337892 - 1340250
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1338037 - 1340250
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1338485 - 1341895
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1347934 - 1349097
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1350149 - 1354123
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1356757 - 1360557
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1369012 - 1376442
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1377598 - 1385063
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1403298 - 1408138
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1410986 - 1418327
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1419211 - 1427797
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1429205 - 1441931
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1448739 - 1467931
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1474543 - 1480631
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482363 - 1483421
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482364 - 1483419
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482364 - 1483419
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482364 - 1483427
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482364 - 1483419
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482586 - 1483419
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1482586 - 1483419
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1486792 - 1502466
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1508730 - 1517377
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1520681 - 1554522
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1583619 - 1586167
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1587002 - 1589674
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1587002 - 1588868
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1587002 - 1589962
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1592236 - 1602698
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1602696 - 1625994
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1628501 - 1636399
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1637455 - 1642584
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1642580 - 1644198
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1653688 - 1685780
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1697055 - 1707375
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1707533 - 1727683
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1732519 - 1750980
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1753080 - 1757541
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1754684 - 1756029
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1759075 - 1768793
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1769609 - 1778940
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1785513 - 1789688
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1789688 - 1813119
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1817383 - 1823695
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1839250 - 1842895
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1842895 - 1846619
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1849573 - 1854995
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1859860 - 1866767
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1871955 - 1874499
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1875767 - 1877621
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1884904 - 1886068
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1884904 - 1886008
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1884904 - 1886068
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1886665 - 1894843
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1897144 - 1908577
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1910123 - 1936416
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1938176 - 1944075
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1944075 - 1965266
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1970527 - 1971152
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1977386 - 1981308
+PrimerSequence::findValidIndices( ) - removing exclude sequence 1982064 - 2026590
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2035843 - 2043445
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2043651 - 2067071
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2070433 - 2080751
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2084393 - 2086938
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2084699 - 2086938
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2084700 - 2086938
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2089698 - 2095821
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2098163 - 2099648
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2106714 - 2107878
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2108882 - 2118080
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2123802 - 2125107
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2127758 - 2137380
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2138992 - 2149538
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2149712 - 2184007
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2184891 - 2202218
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2209782 - 2227160
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2230742 - 2232357
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2230743 - 2232361
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2233099 - 2251511
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2252052 - 2262380
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2262382 - 2274763
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2290626 - 2291976
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2290626 - 2291977
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2291994 - 2293610
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2315233 - 2331780
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2332844 - 2345285
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2360027 - 2362456
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2361072 - 2363395
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2406414 - 2409229
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2412092 - 2424067
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2425337 - 2430595
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2431773 - 2466059
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2467578 - 2502619
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2935065 - 2960436
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2966313 - 2967151
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2967152 - 2983872
+PrimerSequence::findValidIndices( ) - removing exclude sequence 2986723 - 3000014
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3000018 - 3005694
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3011896 - 3024207
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3025025 - 3047110
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3047104 - 3055305
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3056554 - 3066049
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3078837 - 3079900
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3091028 - 3096210
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3097302 - 3126995
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3135291 - 3160655
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3161716 - 3188081
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3188081 - 3192040
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3193047 - 3217178
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3218642 - 3234456
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3234675 - 3264867
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3265923 - 3269609
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3270445 - 3280136
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3287461 - 3288535
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3287463 - 3288539
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3300497 - 3329759
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3329959 - 3341923
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3346943 - 3370379
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3375982 - 3378608
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3383718 - 3389361
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3391786 - 3403443
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3404257 - 3410897
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3427331 - 3432389
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3435141 - 3439748
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3441055 - 3478316
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3495153 - 3497343
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3499154 - 3523291
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3526323 - 3529416
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3532810 - 3535355
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3538998 - 3540188
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3571805 - 3619181
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3622094 - 3644957
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3650513 - 3654389
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3655372 - 3657675
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3666570 - 3674372
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3674597 - 3688604
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3689452 - 3695514
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3695730 - 3705131
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3717109 - 3719541
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3719957 - 3721123
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3729804 - 3732581
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3732755 - 3737821
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3740692 - 3742173
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3743354 - 3744430
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3743357 - 3744429
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3744949 - 3747806
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3749329 - 3757442
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3760406 - 3785941
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3791130 - 3796272
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3796352 - 3797645
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3796469 - 3800876
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3802844 - 3805270
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3806978 - 3809506
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3810053 - 3827884
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3829469 - 3840118
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3841304 - 3842877
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3846686 - 3850090
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3848020 - 3849805
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3848052 - 3849805
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3851595 - 3857799
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3855124 - 3875814
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3855124 - 3856993
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3869303 - 3873411
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3869303 - 3875822
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3877360 - 3878601
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3877360 - 3878746
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3877360 - 3878746
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3877419 - 3878740
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3881639 - 3883774
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3881639 - 3883386
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3881639 - 3883386
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3883544 - 3888115
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3887743 - 3891918
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3889105 - 3891292
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3889105 - 3897413
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3899378 - 3904431
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3904434 - 3919242
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3919338 - 3924873
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3926351 - 3936920
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3954086 - 3963103
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3963110 - 3964721
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3963112 - 3964725
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3964718 - 3972828
+PrimerSequence::findValidIndices( ) - removing exclude sequence 3973358 - 3999058
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4000531 - 4003047
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4006785 - 4010186
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4010452 - 4012800
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4014037 - 4023707
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4024913 - 4029086
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4037106 - 4047211
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4047430 - 4060898
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4067631 - 4099636
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4105702 - 4106217
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4122287
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4121879
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4123738
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4122491
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4122491
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4122083
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4119541 - 4122389
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4124764 - 4125649
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4125773 - 4144635
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152406 - 4153510
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152406 - 4153569
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152407 - 4153566
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152407 - 4153570
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152407 - 4153571
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152408 - 4153570
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152408 - 4153569
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152411 - 4153569
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4152411 - 4153566
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4157515 - 4159262
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4163256 - 4167477
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4167924 - 4176455
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4176455 - 4182974
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4182967 - 4183595
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4184928 - 4188178
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4189110 - 4197104
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4198513 - 4215866
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4216730 - 4234405
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4237207 - 4260488
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4260482 - 4273926
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4284054 - 4295198
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4295351 - 4301188
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4303095 - 4304827
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4310454 - 4311835
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4317461 - 4325633
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4325849 - 4333118
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4335289 - 4338115
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4340028 - 4359630
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4365667 - 4384136
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4393408 - 4394510
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4393573 - 4394510
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4396299 - 4406575
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417195 - 4418505
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417195 - 4418670
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417195 - 4418670
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417195 - 4418505
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417198 - 4418670
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417198 - 4418674
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4417198 - 4418670
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4422947 - 4423997
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4426746 - 4427993
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4426746 - 4427993
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4427989 - 4429301
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4427990 - 4429301
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4427994 - 4429301
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4447597 - 4454328
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4454580 - 4467378
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4468444 - 4477666
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4482212 - 4490560
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4499616 - 4504619
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4505467 - 4518924
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4520331 - 4532128
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4557871 - 4571017
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4570945 - 4577725
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4579014 - 4587102
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4605434 - 4630071
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4642338 - 4666114
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4666984 - 4668373
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4669186 - 4674337
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4677754 - 4698399
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4698705 - 4704977
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4705109 - 4707572
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4707572 - 4738405
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4739705 - 4752583
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4762916 - 4770236
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4774137 - 4787449
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4789407 - 4790242
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4816573 - 4818839
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4816573 - 4822945
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4831459 - 4844637
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4857689 - 4870712
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4870697 - 4887340
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4887898 - 4897526
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4898727 - 4899665
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4901102 - 4914122
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4915938 - 4928389
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4930947 - 4936020
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4936336 - 4947622
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4947770 - 4955037
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4957090 - 4972684
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4974755 - 4989375
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4989890 - 4995411
+PrimerSequence::findValidIndices( ) - removing exclude sequence 4997445 - 5013617
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5024822 - 5029456
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5044783 - 5058031
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5069832 - 5075264
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5078941 - 5079996
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5078941 - 5079996
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5078941 - 5079996
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5083088 - 5098104
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5099344 - 5101056
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5114951 - 5116160
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5114958 - 5116160
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5114959 - 5116160
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5116614 - 5122960
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5122840 - 5125556
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5125728 - 5126750
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5134988 - 5150682
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5150683 - 5163021
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5164638 - 5168947
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5175586 - 5179685
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5179951 - 5186166
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5188964 - 5196690
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5199016 - 5202656
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5203774 - 5206600
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5206983 - 5208101
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5218688 - 5222451
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5222647 - 5226290
+PrimerSequence::findValidIndices( ) - removing exclude sequence 5227136 - 5240075
+PrimerSequence::findValidIndices( ) - 1861324 unique indices
+PrimerSequence::findValidIndexSequences( ) - getting sequences from unique indices
+PrimerSequence::findValidIndexSequences( ) - 73086 sequences found
+PrimerManager::getCommonPrimers - finding primers that are common to all include files
+PrimerManager::findPrimer(s ) - writing sequences to a fasta file
+PrimerManager::writeFastaFile( ) - Writing 1040 sequences to fasta file
+PrimerManager::writeFastaFile( ) - writing fasta file complete
+PrimerManager::findPrimers( ) - executing eprimer3 program
+ProgramBase::Execute( ) - Running the EPrimer3 program.
+ProgramBase::Execute( ) - /usr/bin/eprimer3 tmp8zrYRD/sequenceForEprimer.fasta tmp8zrYRD/referenceprimers.ep3 -numreturn 2 -prange 100-300 -osize 20 -minsize 18 -maxsize 27
+PrimerManager::findPrimer( ) - eprimer3 file tmp8zrYRD/referenceprimers.ep3 created. Parsing for primers.
+eprimerparser::parsePrimerSequences( ) - parsing for primer sequences
+eprimerparser::parsePrimerSequences( ) - finished parsing. found 2058 primers
+PrimerManager::findPrimers( ) - parsing for sequences complete
+fastaparser::parseFastaFile( ) - parsing fasta file tmp8zrYRD/combined_exlude.ffn
+PrimerManager::crossValidatePrimers - finding primers that are not in the supplied exclude file
+ProgramBase::Execute( ) - Running the PrimerSearch program.
+ProgramBase::Execute( ) - /usr/bin/primersearch -seqall tmp8zrYRD/combined_exlude.ffn -infile tmp8zrYRD/tmpinputprimers.ps -mismatchpercent 10 -outfile tmp8zrYRD/tmpoutputprimers.ps
+PrimerManager::crossValidatePrimers - 836 unique primers identified out of 2058
+fastaparser::parseFastaFile( ) - parsing fasta file test-data/PXO99.fa
+PrimerManager::crossValidatePrimers - finding primers that are in the supplied include file
+ProgramBase::Execute( ) - Running the PrimerSearch program.
+ProgramBase::Execute( ) - /usr/bin/primersearch -seqall test-data/PXO99.fa -infile tmp8zrYRD/tmpinputprimers2.ps1 -mismatchpercent 0 -outfile tmp8zrYRD/tmpoutputprimers2.ps1
+PrimerManager::crossValidatePrimers - 836 unique primers identified out of 836
+UniqPrimerFinder::findPrimers( ) - found 836 unique sequences
+UniqPrimerFinder::writeOutputFile() - output file written.
+UniqPrimerFinder::findPrimers() - Finished finding primers

@@ -1,0 +1,80 @@
+<tool id="makePCA2" name="Compute Principal Components" version="0.2.0">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+		ln -s '$bed' input.bed;
+		ln -s '$bim' input.bim;
+		ln -s '$fam' input.fam;	
+		sh $__tool_directory__/makePCA2.sh input.bed input.bim input.fam ;
+
+    ]]></command>
+    <inputs>
+		<param type="data" name="bim" format="txt" label="Plink Binary Bim Files"/>
+		<param type="data" name="fam" format="txt" label="Plink Binary Fam Files"/>
+		<param type="data" name="bed" label="Plink Binary Bed Files"/>
+    </inputs>
+    <outputs>
+        <data name="out1" format="txt" from_work_dir="PC.txt" label="Eigen Vectors" />
+        <data name="out2" format="txt" from_work_dir="Eigenvalues.txt" label="Eigen Values" />
+        <data name="out3" format="txt" from_work_dir="pca_for_gemma.txt" label="PCA covariate file" />
+   </outputs>
+    <tests>
+        <test>
+            <param name="bim" value="data500-pruned.bim"/>
+            <param name="fam" value="data500-pruned.fam"/>
+            <param name="bed" value="data500-pruned.bed"/>
+            <output name="out1" file="PC.txt"/>
+            <output name="out2" file="Eigenvalues.txt"/>
+            <output name="out3" file="pca_for_gemma.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+.. class:: infomark  
+
+**Compute Principal Components** 
+
+----
+
+**Description**
+
+This tool runs Principal Component Analysis on the provided genotype data using PLINK1.9 and converts the output “eigenvec” file into the form of covariate file accepted by GEMMA.
+
+----
+
+**Input**
+
+A binary PLINK dataset (bim,bed,fam files).
+
+**Output**
+
+The output consists of several files.
+
+**Direct PLINK outputs:**
+
+- An .eigenvec file, containing principal components
+
+- An .eigenval file containing first few eigenvalues (can be used for “scree plot”).
+
+- A log file (to refer to in case of errors)
+
+**Additional outputs**
+
+- pca_for_gemma.txt : This is a file that can be used as a GEMMA covariate file. This output file already has the “intercept” column (containing all 1s) as the first column, along with all the PCs in the other columns.
+
+**Note.**
+You may want to remove some of the PC columns. Please be sure not to remove the first column.
+     
+
+]]></help>
+    <citations>
+        <citation type="bibtex">
+@misc{Purcell17701901,
+	author = {Purcell, Shaun, et.al},
+	title = {PLINK: a tool set for whole-genome association and population-based linkage analyses},
+	year = {2007},
+	doi = {10.1086/519795},
+	publisher = {The American Society of Human Genetics},
+	journal = {American journal of human genetics}
+}</citation>
+    </citations>
+</tool>

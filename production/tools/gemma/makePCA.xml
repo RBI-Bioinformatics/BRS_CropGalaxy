@@ -1,0 +1,47 @@
+<tool id="makePCA" name="Compute Principal Components" version="0.2.0">
+    <requirements>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+		ln -s '$bim' input.bim ;
+		ln -s '$fam' input.fam ;
+		ln -s '$bed' input.bed ;
+		sh $__tool_directory__/makePCA.sh input ;
+    ]]></command>
+    <inputs>
+		<param type="data" name="bim" format="txt"  label="Plink Binary Bim Files"/>
+		<param type="data" name="fam" format="txt"  label="Plink Binary Fam Files"/>
+		<param type="data" name="bed" label="Plink Binary Bed Files"/>
+    </inputs>
+    <outputs>
+        <!--<data name="pc" auto_format="true" >
+		 <discover_datasets pattern="PC1-(?P&lt;designation&gt;([A-Z-])\w+)\.(?P&lt;ext&gt;.+)" ext="txt" visible="true" directory="." recurse="true"/>
+		
+   	</data>  -->
+        <data name="pca" auto_format="true" >
+		 <discover_datasets pattern="__designation__" visible="true" directory="PCA" recurse="true"/>
+		
+   	</data> 
+   </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="bim"/>
+            <param name="input2" value="fam"/>
+            <param name="input3" value="bed"/>
+            <output name="output1" file="output1"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        TODO: Fill in help.
+    ]]></help>
+    <citations>
+        <citation type="bibtex">
+@misc{githubgemma-gwas-scripts,
+  author = {LastTODO, FirstTODO},
+  year = {TODO},
+  title = {gemma-gwas-scripts},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = {https://github.com/dchebotarov/gemma-gwas-scripts},
+}</citation>
+    </citations>
+</tool>

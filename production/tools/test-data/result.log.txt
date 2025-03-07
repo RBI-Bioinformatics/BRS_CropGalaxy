@@ -1,0 +1,28 @@
+##
+## GEMMA Version    = 0.98.1 (2018-12-10)
+## Build profile    = 
+## GCC version      = 8.2.0
+## GSL Version      = 2.5
+## Eigen Version    = 3.3.5
+## OpenBlas         = OpenBLAS 0.3.2  - DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=6
+##   arch           = Haswell
+##   threads        = 2
+##   parallel type  = threaded
+##
+## Command Line Input = gemma -gk 1 -bfile data500-pruned -outdir . 
+##
+## Date = Mon Jul  6 04:53:47 2020
+##
+## Summary Statistics:
+## number of total individuals = 500
+## number of analyzed individuals = 500
+## number of covariates = 1
+## number of phenotypes = 1
+## number of total SNPs/var = 629069
+## number of analyzed SNPs/var = 494388
+##
+## Computation Time:
+## total computation time = 0.355297 min 
+## computation time break down: 
+##      time on calculating relatedness matrix = 0.257084 min 
+##

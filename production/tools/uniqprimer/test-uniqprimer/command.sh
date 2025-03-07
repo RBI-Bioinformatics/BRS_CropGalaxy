@@ -1,0 +1,1 @@
+sudo python uniqprimer.py -i test-data/PXO99.fa -x test-data/BLS256.fa --productsizerange 100-300 --primersize 20 --minprimersize 18 --crossvalidate --keeptempfiles --maxprimersize 27 -o 5Aug2024_PX099-BLS256_primers.out -f 5Aug2024.fa -l 5Aug2024.log
