@@ -1,0 +1,103 @@
+<tool id="plink:filter" name="Filter" version="1.09">
+        <description> Genotypes</description>
+        <requirements>
+                <requirement type="package" version="1.09"> plink </requirement>
+        </requirements>
+         <stdio>
+                 <exit_code range="2"   level="fatal"   description="Out of Memory" />
+                <exit_code range="3:5" level="warning" description="Low disk space" />
+                <exit_code range="6:"  level="fatal"   description="Bad input dataset" />
+        </stdio>
+        <command>
+        <![CDATA[
+                #set id = $bedFile.dataset_id
+                ln -s $bedFile input.bed ;
+                ln -s $bimFile input.bim ;
+                ln -s $famFile input.fam ;
+                plink
+                --allow-extra-chr
+                --bfile input
+                --geno $geno
+                --maf $maf
+                #if str($filter_samples.keep_options) == 'yes' :
+                        --keep-fam $filter_samples.keepFamFile
+                #end if
+                --make-bed --out output;
+                rm *.nosex ;
+                unlink input.bed;
+                unlink input.bim;
+                unlink input.fam;
+        ]]>
+        </command>
+        <inputs>
+                <param name="bedFile" type="data" label="Genotype Data: .bed file" />
+                <param name="bimFile" type="data" format="txt" label="Genotype Data: bim file" />
+                <param name="famFile" type="data" format="txt" label="Genotype Data: fam file" />
+                <param name="maf" type="float" value="0.01" min="0.00" max="1.00" label="minor allele Frequency" help="filters out all variants with m
+                <param name="geno" type="float" value="0.1" min="0.0" max="1.0" label="missing genotype rate" help="filters out all variants with miss
+                <conditional name="filter_samples">
+                        <param name="keep_options" type="boolean" truevalue="yes" falsevalue="no" label="Filter individuals?" />
+                        <when value="yes">
+                                <param name="keepFamFile" type="data" label="File containing individuals to keep" help="(.txt) One column file contain
+-                       </when>
+                        <when value="no"/>
+                </conditional>
+        </inputs>
+
+        <outputs>
+                 <data name="output1" label="Filtered Dataset Output (.bed)" from_work_dir="output.bed"/>
+                 <data format="txt" name="output2" label="Filtered Dataset Output (.bim)" from_work_dir="output.bim"/>
+                 <data format="txt" name="output3" label="Filtered Dataset Output (.fam)" from_work_dir="output.fam"/>
+        </outputs>
+
+        <tests>
+                <test>
+                        <param name="bedFile" value="test.bed" />
+                        <param name="bimFile" value="test.bim" />
+                        <param name="famFile" value="test.fam" />
+                </test>
+        </tests>
+        <help>
+.. class:: infomark
+
+**Filter Genotypes using Plink.**
+
+-----
+
+**What this tool does**
+
+This tool enables filtering on the genotypes.
+
+-----
+
+**Plink Binary files**
+
+- .bed (PLINK binary biallelic genotype table) : Primary representation of genotype calls at biallelic variants
+
+- .bim (PLINK extended MAP file) : Extended variant information file accompanying a .bed binary genotype table.
+
+- .fam (PLINK sample information file) : Sample information file accompanying a .bed binary genotype table.
+
+
+This tool uses Plink v1.9
+
+- Package : PLINK v1.9
+- Authors : Shaun Purcell, Christopher Chang
+- URL     : www.cog-genomics.org/plink/1.9/
+
+        </help>
+
+        <citations>
+        <!-- Example of annotating a citation using a BibTex entry. -->
+                <citation type="bibtex">@ARTICLE{Chang15second-generationplink,
+                author = {Chang CC, Chow CC, Tellier LCAM, Vattikuti S, Purcell SM, Lee JJ},
+                title = {Second-generation PLINK: rising to the challenge of larger and richer datasets},
+                journal = {GigaScience},
+                year = {2015},
+                volume = {4}
+                }</citation>
+        </citations>
+
+</tool>
+
+
