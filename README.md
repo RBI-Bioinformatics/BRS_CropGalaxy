@@ -1,1 +1,1 @@
-# BRS_CropGalaxy
+# CropGalaxy
